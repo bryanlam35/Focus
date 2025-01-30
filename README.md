@@ -1,7 +1,7 @@
 # Focus
 Focus will allow users like students and instructors to have better communication and a more simple way to connect via voice channels. This would create a learning environment where students can come and go meet instructors all within the Canvas homepage.
 
-How To Access Hello World Via Developer Tools (Must be using Google Chrome)
+How To Access Focus Via Developer Tools (Must be using Google Chrome)
 1. Download all files into one folder
 2. On another tab type "chrome://extensions"
 3. In the top right hand corner, enable developer mode
