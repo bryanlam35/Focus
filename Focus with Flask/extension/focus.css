@@ -1,0 +1,348 @@
+/* Apply Times New Roman font to all text elements */
+body, h1, h2, h3, h4, h5, h6, p, span {
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Title styling (for "Hello world") */
+h2 {
+    font-size: 40px;             /* Controls text size - increase or decrease as needed */
+    margin-top: 10px;            /* Space above the title */
+    margin-bottom: 30px;         /* Space below the title */
+    text-align: left;          /* Centers the text - use "left" or "right" if preferred */
+    color: #ffffff;              /* Text color */
+    font-weight: bold;           /* Makes text bold - use "normal" for regular weight */
+}
+
+/* Main popup window styling */
+body {
+    width: 400px;      /* Sets the width of the popup window */
+    min-height: 400px; /* Sets the minimum height of the popup window */
+    padding: 20px;     /* Adds space inside the popup around the content */
+    margin: 0;         /* Removes any default margin */
+    position: relative; /* Enables absolute positioning of child elements */
+    background: linear-gradient(to bottom, #7ae0fc, #c5e4ec); /* Creates a blue gradient background */
+    color: #ffffff;    /* Sets text color to white */
+}
+
+/* Container for the toggle switch - positioned at bottom left */
+.switch-container {
+    position: absolute; /* Positions element exactly where specified */
+    bottom: 5px;        /* Distance from bottom edge of window */
+    left: 1px;          /* Distance from left edge of window */
+    display: flex;      /* Enables flexible box layout */
+    align-items: center; /* Centers items vertically */
+    gap: 10px;          /* Space between child elements */
+    margin: 0;          /* Removes any default margin */
+}
+
+/* Toggle switch base styling */
+.switch {
+    position: relative; /* Required for absolute positioning of children */
+    display: inline-block;
+    width: 45px;        /* Width of the toggle switch */
+    height: 25px;       /* Height of the toggle switch */
+}
+
+/* Tooltip that appears on hover */
+.switch::after {
+    content: attr(data-tooltip); /* Uses the data-tooltip attribute as text */
+    position: absolute;          /* Positions tooltip relative to switch */
+    bottom: 100%;                /* Places tooltip above the switch */
+    left: 50%;                   /* Centers tooltip horizontally */
+    transform: translateX(-50%); /* Ensures perfect centering */
+    padding: 5px;                /* Adds space inside tooltip */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    color: white;                /* White text for tooltip */
+    border-radius: 4px;          /* Rounded corners on tooltip */
+    font-size: 12px;             /* Smaller text size for tooltip */
+    white-space: nowrap;         /* Prevents text from wrapping */
+    opacity: 0;                  /* Hidden by default */
+    visibility: hidden;          /* Hidden by default */
+    transition: opacity 0.2s;    /* Smooth fade in/out effect */
+}
+
+/* Make tooltip visible when hovering over the switch */
+.switch:hover::after {
+    opacity: 1;                  /* Makes tooltip visible */
+    visibility: visible;         /* Makes tooltip visible */
+}
+
+/* Hide the default checkbox */
+.switch input {
+    opacity: 0;                  /* Makes checkbox invisible */
+    width: 0;                    /* No width */
+    height: 0;                   /* No height */
+}
+
+/* Slider styling (the track part of the toggle) */
+.slider {
+    position: absolute;          /* Position within the switch container */
+    cursor: pointer;             /* Hand cursor on hover */
+    top: 0;                      /* Position at top of switch */
+    left: 0;                     /* Position at left of switch */
+    right: 0;                    /* Extend to right of switch */
+    bottom: 0;                   /* Extend to bottom of switch */
+    background-color: #ccc;      /* Gray color when off */
+    transition: .4s;             /* Smooth color transition */
+    border-radius: 34px;         /* Rounded corners (pill shape) */
+}
+
+/* Slider knob/circle styling */
+.slider:before {
+    position: absolute;          /* Position within the slider */
+    content: "";                 /* Empty content for the circle */
+    height: 19px;                /* Height of the circle */
+    width: 19px;                 /* Width of the circle */
+    left: 3px;                   /* Position from left edge */
+    bottom: 3px;                 /* Position from bottom edge */
+    background-color: rgb(255, 255, 255); /* White circle */
+    transition: .4s;             /* Smooth movement transition */
+    border-radius: 50%;          /* Perfect circle shape */
+}
+
+/* Styling for the slider when toggle is on (checked) */
+input:checked + .slider {
+    background-color: #ff0000;   /* Blue color when on */
+}
+
+/* Moves the circle to the right when toggle is on */
+input:checked + .slider:before {
+    transform: translateX(20px); /* Distance to move right */
+}
+
+/* Microphone icon styling */
+.mic-icon {
+    font-size: 24px;             /* Size of the icon - significantly increased */
+    margin-left: 5px;           /* Space to the left of the icon */
+    color: #000000;              /* Default black color (unmuted) */
+    vertical-align: middle;      /* Align vertically with the switch */
+}
+
+/* Red microphone when muted */
+.switch-container input:checked ~ .mic-icon {
+    color: #ff0000;              /* Red color when muted */
+}
+
+/* Second definition of switch-container (this overrides the first one) */
+.switch-container {
+    position: absolute;          /* Absolute positioning */
+    bottom: 20px;                /* Distance from bottom edge */
+    left: 20px;                  /* Distance from left edge */
+    display: flex;               /* Flexible box layout */
+    align-items: center;         /* Vertical centering */
+    gap: 5px;                    /* Space between elements (changed from 10px above) */
+    margin: 0;                   /* No margin */
+}
+
+/* Text label styling (not used if you removed the label) */
+.toggle-label {
+    font-family: sans-serif;     /* Font family for label */
+    margin-left: 10px;           /* Space to the left of the label */
+    cursor: pointer;             /* Hand cursor on hover */
+    font-weight: bold;           /* Bold text */
+    min-width: 70px;             /* Minimum width to prevent layout shifting */
+}
+
+/* Section title styling */
+.section-title {
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Container for all class boxes */
+.classes-container {
+    margin-top: 20px;
+    margin-bottom: 70px; /* Add space for the toggle switch at bottom */
+}
+
+/* Grid layout for class boxes */
+.class-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 15px; /* Space between boxes */
+    padding: 10px;
+}
+
+/* Individual class box styling */
+.class-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; /* Hand cursor to indicate clickable */
+    transition: all 0.2s ease; /* Smooth hover effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 2px solid transparent; /* Transparent border by default */
+}
+
+/* Hover effect for class boxes */
+.class-box:hover {
+    background-color: rgba(255, 255, 255, 0.95); /* More opaque on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    border-color: #1915ff; /* Blue border on hover */
+}
+
+/* Active/clicked effect */
+.class-box:active {
+    transform: translateY(1px); /* Pressed down effect */
+}
+
+/* Class title styling */
+.class-box h4 {
+    margin: 0 0 5px 0;
+    color: #1915ff; /* Blue color matching the toggle */
+    font-size: 18px;
+}
+
+/* Class description styling */
+.class-box p {
+    margin: 0 0 10px 0;
+    color: #333333;
+    font-size: 14px;
+    flex-grow: 1; /* Push the participants count to the bottom */
+}
+
+/* Participants count styling */
+.class-box .participants {
+    font-size: 12px;
+    color: #666666;
+    align-self: flex-end; /* Align to bottom right */
+}
+
+/* Active class styling when joined */
+.class-box.active {
+    background-color: rgba(25, 21, 255, 0.1); /* Light blue background */
+    border-color: #1915ff; /* Blue border */
+}
+
+/* Joined indicator for active class */
+.class-box.active::after {
+    content: "Joined";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #1915ff;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* Make the boxes more responsive */
+@media (max-width: 350px) {
+    .class-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}
+
+/* Notification container */
+.notification-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual notification */
+.notification {
+    background-color: rgba(25, 21, 255, 0.9);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    max-width: 250px;
+    animation: slide-in 0.3s ease;
+}
+
+/* Left class notification */
+.notification.left {
+    background-color: rgba(80, 80, 80, 0.9); /* Red background for left notifications */
+}
+
+/* Error notification */
+.notification.error {
+    background-color: rgba(255, 0, 0, 0.9);
+}
+
+/* Fading out animation */
+.notification.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Sliding in animation */
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Loading indicator styling */
+.loading-indicator {
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Error message styling */
+.error-message {
+    padding: 20px;
+    text-align: center;
+    color: #ff6666;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* No courses message styling */
+.no-courses-message {
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* Remove the hover effects for the title */
+#testing-hello-world {
+    transition: none !important;
+}
+
+#testing-hello-world:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove the title animation */
+@keyframes title-appear {
+    0% {
+        opacity: 1;
+        transform: none;
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+#testing-hello-world {
+    animation: none !important;
+}
