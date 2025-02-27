@@ -1,0 +1,25 @@
+{
+  "name": "Focus",
+  "description": "Canvas integration for voice channels",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "focus.html",
+    "default_icon": "focus.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:5000/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["settings.html", "focus.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

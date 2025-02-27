@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Focus Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            width: 600px;
+            min-height: 500px;
+            padding: 20px;
+            margin: 0;
+            position: relative;
+            background: linear-gradient(to bottom, #7ae0fc, #c5e4ec);
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        h2 {
+            font-size: 40px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            text-align: left;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .settings-container {
+            margin-top: 20px;
+            margin-bottom: 70px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        .form-group .helper-text {
+            color: #ffffff;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .instructions {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .instructions h4 {
+            color: #1915ff;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            color: #333333;
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+        
+        .save-button, .cancel-button, .back-button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            border: none;
+        }
+        
+        .save-button {
+            background-color: #1915ff;
+            color: white;
+        }
+        
+        .save-button:hover {
+            background-color: #0e0bc7;
+        }
+        
+        .cancel-button, .back-button {
+            background-color: #cccccc;
+            color: #333333;
+        }
+        
+        .cancel-button:hover, .back-button:hover {
+            background-color: #b3b3b3;
+        }
+        
+        .back-link {
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
+        .notification-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+        
+        .notification {
+            background-color: rgba(25, 21, 255, 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+            font-size: 14px;
+            max-width: 250px;
+        }
+        
+        .notification.error {
+            background-color: rgba(255, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <h2 style="display: flex; align-items: center; gap: 5px;">
+        <img src="focus.png" alt="Focus Icon" style="height: 40px; width: 40px;">
+        <span style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); letter-spacing: 1px;">Focus Settings</span>
+    </h2>
+    
+    <div class="settings-container">
+        <div class="instructions">
+            <h4>How to Get Your Canvas API Key</h4>
+            <ol>
+                <li>Go to your Canvas Student Account</li>
+                <li>Select Settings</li>
+                <li>Under the "Approved Integration" Section, Click: New Access Token</li>
+                <li>For reasoning put: "Focus Extension"</li>
+                <li>Click Generate Token</li>
+                <li>Copy the entire token and paste it below</li>
+            </ol>
+        </div>
+        
+        <div class="form-group">
+            <label for="canvas-url">Canvas URL</label>
+            <input type="text" id="canvas-url" placeholder="https://canvas.instructure.com" value="https://canvas.instructure.com">
+            <div class="helper-text">Your institution's Canvas URL (default is correct for most users)</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="api-key">Canvas API Key</label>
+            <input type="password" id="api-key" placeholder="Paste your Canvas API key here" value="349~vRWLLB4JuTewz7C6DthFNZ2EVu6KJttMmRKHk6RhYZwkwR64yYMka3XzmLQR4JxK">
+            <div class="helper-text">Your API key will be stored locally and used only to access your Canvas courses</div>
+        </div>
+        
+        <div class="button-container">
+            <button class="back-button" id="back-button">Back to Focus</button>
+            <button class="save-button" id="save-button">Save Settings</button>
+        </div>
+    </div>
+    
+    <script src="settings.js"></script>
+</body>
+</html>
