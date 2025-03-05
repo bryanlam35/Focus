@@ -1,6 +1,9 @@
 # Focus
 Focus will allow users like students and instructors to have better communication and a more simple way to connect via voice channels. This would create a learning environment where students can come and go meet instructors all within the Canvas homepage.
 
+
+# Run flask program to start localhost
+
 How To Access Focus Via Developer Tools (Must be using Google Chrome)
 1. Download all files into one folder
 2. On another tab type "chrome://extensions"
